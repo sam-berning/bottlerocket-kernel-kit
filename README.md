@@ -1,18 +1,18 @@
-# Bottlerocket Core Kit
-This is the core kit for [Bottlerocket](https://github.com/bottlerocket-os/bottlerocket).
+# Bottlerocket Kernel Kit
+This is the kernel kit for [Bottlerocket](https://github.com/bottlerocket-os/bottlerocket).
 It includes many common dependencies for downstream package and variant builds.
 
 ## Contents
-The core kit includes:
-* Shared libraries such as glibc and libz
-* Management daemons such as systemd and dbus-broker
-* Agents for settings API and in-place updates
+The kernel kit includes:
+* multiple versions of the Linux kernel
+* bootloaders
+* firmware
 
 ### Availability
-The [Bottlerocket core kit](https://gallery.ecr.aws/bottlerocket/bottlerocket-core-kit) is available through Amazon ECR Public.
+The [Bottlerocket kernel kit](https://gallery.ecr.aws/bottlerocket/bottlerocket-kernel-kit) is available through Amazon ECR Public.
 
 ### Development
-The core kit can be built on either an **x86_64** or an **aarch64** host. To do this you can use the following commands. 
+The kernel kit can be built on either an **x86_64** or an **aarch64** host. To do this you can use the following commands. 
 ```shell
 make
 ```

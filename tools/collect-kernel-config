@@ -5,7 +5,7 @@ output_dir=/tmp/configs
 usage() {
     cat <<EOF
 Usage: $0 -o OUTPUT-DIRECTORY
-Collect kernel configurations after core kit build
+Collect kernel configurations after kernel kit build
 
     -o, --output-dir    path to the output directory
     -h, --help          show this help text

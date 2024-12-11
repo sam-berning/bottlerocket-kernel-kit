@@ -1,0 +1,26 @@
+[package]
+name = "bottlerocket-kernel-kit"
+version = "0.1.0"
+edition = "2021"
+publish = false
+build = "../build.rs"
+
+[package.metadata.build-kit]
+vendor = "bottlerocket"
+
+[lib]
+path = "../kit.rs"
+
+[build-dependencies]
+grub = { path = "../../packages/grub" }
+kernel-5_10 = { path = "../../packages/kernel-5.10" }
+kernel-5_15 = { path = "../../packages/kernel-5.15" }
+kernel-6_1 = { path = "../../packages/kernel-6.1" }
+kmod-5_10-nvidia = { path = "../../packages/kmod-5.10-nvidia" }
+kmod-5_15-nvidia = { path = "../../packages/kmod-5.15-nvidia" }
+kmod-6_1-nvidia = { path = "../../packages/kmod-6.1-nvidia" }
+linux-firmware = { path = "../../packages/linux-firmware" }
+microcode = { path = "../../packages/microcode" }
+libkcapi = { path = "../../packages/libkcapi" }
+shim = { path = "../../packages/shim" }
+

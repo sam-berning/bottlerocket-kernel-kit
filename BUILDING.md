@@ -1,6 +1,6 @@
-# How to build the Bottlerocket core kit
+# How to build the Bottlerocket kernel kit
 
-If you'd like to build your own copy of the core kit for local development, follow these steps.
+If you'd like to build your own copy of the kernel kit for local development, follow these steps.
 
 ## Dependencies
 #### System Requirements
@@ -57,9 +57,9 @@ The following configuration is needed in your `/etc/docker/daemon.json`
 
 The installation instructions for [crane](https://github.com/google/go-containerregistry/tree/main/cmd/crane) should help you set it up for use with Twoliter.
 
-## Build the core kit
+## Build the kernel kit
 
-Building the core kit can be done by using the makefile targets.
+Building the kernel kit can be done by using the makefile targets.
 ```
 make ARCH=<architecture>
 ```
@@ -69,7 +69,7 @@ After the kit has been built you can then publish the kit image to your private 
 
 ### Use a private registry for development
 It is recommended that you have some form of protected container registry to use for testing.
-For testing purposes you can either utilize mutable tags to allow overriding of multiple versions of a core kit as you test, or you can use immutable tags and continuously bump the core kit version via the `Twoliter.toml`. 
+For testing purposes you can either utilize mutable tags to allow overriding of multiple versions of a kernel kit as you test, or you can use immutable tags and continuously bump the kernel kit version via the `Twoliter.toml`. 
 
 ### Configure Infra.toml
 An `Infra.toml` file needs to be created and should have a definition of your vendor (container registry) in order to publish the kits you build. To do so make sure that the `Infra.toml` has the below.
@@ -82,22 +82,22 @@ After the kit has been built locally, the kit can be published to the provided v
 aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin ####.dkr.ecr.us-west-2.amazonaws.com
 ```
 
-Finally, publishing the core kit images can be handled by the makefile target.
+Finally, publishing the kernel kit images can be handled by the makefile target.
 ```
 make publish VENDOR=<vendor-name>
 ```
-At this point, there should be a core kit image in your private registry which can be consumed when building a variant to test and validate.
+At this point, there should be a kernel kit image in your private registry which can be consumed when building a variant to test and validate.
 
 ## Consuming the published kit image
-This section will cover building a variant to test a build of the core kit as done above. Please note this section does not cover the complete complexity of testing a change to Bottlerocket. For this see the [BUILDING](https://github.com/bottlerocket-os/bottlerocket/blob/develop/BUILDING.md) section in the [Bottlerocket](https://github.com/bottlerocket-os/bottlerocket/) repository.
+This section will cover building a variant to test a build of the kernel kit as done above. Please note this section does not cover the complete complexity of testing a change to Bottlerocket. For this see the [BUILDING](https://github.com/bottlerocket-os/bottlerocket/blob/develop/BUILDING.md) section in the [Bottlerocket](https://github.com/bottlerocket-os/bottlerocket/) repository.
 
 ### Configure Twoliter.toml
-To consume a private copy of the Bottlerocket core kit with your changes built into it, you need to define the vendor that points to your container registry in `Twoliter.toml` and adjust the core kit dependency:
+To consume a private copy of the Bottlerocket kernel kit with your changes built into it, you need to define the vendor that points to your container registry in `Twoliter.toml` and adjust the kernel kit dependency:
 ```
 [vendor.my-vendor]
 registry = "####.dkr.ecr.us-west-2.amazonaws.com"
 [[kit]]
-name = "bottlerocket-core-kit" # Name of your ECR repo
+name = "bottlerocket-kernel-kit" # Name of your ECR repo
 version = "2.x.y" # your version tag you want to test
 vendor = "my-vendor"
 ```

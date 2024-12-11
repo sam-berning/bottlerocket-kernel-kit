@@ -6,7 +6,7 @@ on:
     branches: [develop]
 jobs:
   cache:
-    if: github.repository == 'bottlerocket-os/bottlerocket-core-kit'
+    if: github.repository == 'bottlerocket-os/bottlerocket-kernel-kit'
     runs-on:
       group: bottlerocket
       labels: bottlerocket_ubuntu-latest_32-core
