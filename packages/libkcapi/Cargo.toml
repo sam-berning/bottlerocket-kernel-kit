@@ -14,4 +14,3 @@ sha512 = "6498147434059343f1ccdd7efadcd425ad7074e41b4e019fc995129d5df326b781e0a6
 force-upstream = true
 
 [build-dependencies]
-glibc = { path = "../glibc" }
