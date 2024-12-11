@@ -1,0 +1,56 @@
+name: Build
+on:
+  pull_request:
+    branches: [develop]
+    # Here we list file types that don't affect the build and don't need to use
+    # up our Actions runners.
+    paths-ignore:
+      # draw.io (diagrams.net) files, the source of png images for docs
+      - '**.drawio'
+      # Example configuration files
+      - '**.example'
+      # Markdown documentation
+      - '**.md'
+      # Images for documentation
+      - '**.png'
+      # Templates for README files
+      - '**.tpl'
+      # Sample config files and OpenAPI docs
+      - '**.yaml'
+      # Bottlerocket Security Advisories
+      - 'advisories/**'
+      # VSCode configurations
+      - '.vscode/**'
+
+concurrency:
+  group: ${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on:
+      group: bottlerocket
+      labels: bottlerocket_ubuntu-latest_32-core
+    continue-on-error: true
+    strategy:
+      matrix:
+        arch: [x86_64, aarch64]
+      fail-fast: false
+    name: "Build ${{ matrix.arch }}"
+    steps:
+      - name: Random delay
+        run: |
+          delay=$((1 + $RANDOM % 32))
+          echo "Waiting ${delay} seconds before execution"
+          sleep $delay
+      - uses: actions/checkout@v4
+      - name: Preflight step to set up the runner
+        uses: ./.github/actions/setup-node
+      - run: rustup component add rustfmt
+      - run: make twoliter check-licenses
+      - run: make twoliter unit-tests
+      # Avoid running Go lint check via `cargo make check-lints` since there's a separate golangci-lint workflow
+      - run: make twoliter check-fmt
+      - run: make twoliter check-clippy
+      - run: make twoliter check-shell
+      - run: make ARCH="${{ matrix.arch }}"

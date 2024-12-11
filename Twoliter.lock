@@ -1,0 +1,9 @@
+schema-version = 1
+kit = []
+
+[sdk]
+name = "bottlerocket-sdk"
+version = "0.50.0"
+vendor = "bottlerocket"
+source = "public.ecr.aws/bottlerocket/bottlerocket-sdk:v0.50.0"
+digest = "Rjpy/gVgBhU/B696xaK1Y4/drz4pNJu+fyyZSIk9oLE="

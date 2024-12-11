@@ -1,0 +1,21 @@
+name: "Node setup"
+description: "Performs setup for caching and other common needs."
+runs:
+  using: "composite"
+  steps:
+    - run: sudo apt -y install build-essential openssl libssl-dev pkg-config liblz4-tool clang
+      shell: bash
+    - uses: actions/cache/restore@v4
+      # Restore most recent cache if available.
+      with:
+        path: |
+          ~/.cargo
+          .cargo
+          .gomodcache
+          build/external-kits
+          build/rpms
+          build/state
+          target
+        key: build-cache
+    - run: cargo install cargo-make
+      shell: bash
