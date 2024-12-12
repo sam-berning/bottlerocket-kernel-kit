@@ -19,8 +19,6 @@ else
 endif
 
 
-export GO_MODULES = ecs-gpu-init host-ctr
-
 all: build
 
 prep:
