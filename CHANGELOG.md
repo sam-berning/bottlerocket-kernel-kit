@@ -1,3 +1,10 @@
+# v1.0.2 (2024-12-20)
+
+## Build Changes
+* Update CHANGELOG.md to match format expected by release automation ([#12])
+
+[#12]: https://github.com/bottlerocket-os/bottlerocket-kernel-kit/pull/12
+
 # v1.0.1 (2024-12-20)
 
 ## OS Changes
