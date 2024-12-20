@@ -1,4 +1,4 @@
-# 1.0.1 (2024-12-20)
+# v1.0.1 (2024-12-20)
 
 ## OS Changes
 * Update to kernel 5.10.230 and 5.15.173 ([#10])
@@ -9,7 +9,7 @@
 [#5]: https://github.com/bottlerocket-os/bottlerocket-kernel-kit/pull/5
 [#10]: https://github.com/bottlerocket-os/bottlerocket-kernel-kit/pull/10
 
-# 1.0.0 (2024-12-11)
+# v1.0.0 (2024-12-11)
 
 ## Build Changes
 * Create the new kernel kit from the following core-kit packages: ([#1])
