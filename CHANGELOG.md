@@ -1,3 +1,14 @@
+# 1.0.1 (2024-12-20)
+
+## OS Changes
+* Update to kernel 5.10.230 and 5.15.173 ([#10])
+
+## Build Changes
+* Add GPG verification where possible ([#5])
+
+[#5]: https://github.com/bottlerocket-os/bottlerocket-kernel-kit/pull/5
+[#10]: https://github.com/bottlerocket-os/bottlerocket-kernel-kit/pull/10
+
 # 1.0.0 (2024-12-11)
 
 ## Build Changes
