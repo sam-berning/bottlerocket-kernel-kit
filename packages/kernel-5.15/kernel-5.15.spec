@@ -1,13 +1,13 @@
 %global debug_package %{nil}
 
 Name: %{_cross_os}kernel-5.15
-Version: 5.15.168
+Version: 5.15.173
 Release: 1%{?dist}
 Summary: The Linux kernel
 License: GPL-2.0 WITH Linux-syscall-note
 URL: https://www.kernel.org/
 # Use latest-kernel-srpm-url.sh to get this.
-Source0: https://cdn.amazonlinux.com/blobstore/9cea3dae03703f3c4c78fcb1302eeee5fe4c07ebf53d783cf3aaf7e4f30a6d39/kernel-5.15.168-114.166.amzn2.src.rpm
+Source0: https://cdn.amazonlinux.com/blobstore/35e2e2432267615ca5cbe519eb781747524fdbb903d8c4dd0e231d38561a21be/kernel-5.15.173-118.169.amzn2.src.rpm
 Source1: gpgkey-99E617FE5DB527C0D8BD5F8E11CF1F95C87F5B1A.asc
 # Use latest-neuron-srpm-url.sh to get this.
 Source2: https://yum.repos.neuron.amazonaws.com/aws-neuronx-dkms-2.18.12.0.noarch.rpm
@@ -26,9 +26,6 @@ Patch1002: 1002-Revert-kbuild-hide-tools-build-targets-from-external.patch
 Patch1003: 1003-initramfs-unlink-INITRAMFS_FORCE-from-CMDLINE_-EXTEN.patch
 # Increase default of sysctl net.unix.max_dgram_qlen to 512.
 Patch1004: 1004-af_unix-increase-default-max_dgram_qlen-to-512.patch
-
-# Fix typo that breaks IPv6 via ip6tables commands
-Patch1100: 1100-netfilter-xtables-fix-typo-causing-some-targets-not-.patch
 
 BuildRequires: bc
 BuildRequires: elfutils-devel
