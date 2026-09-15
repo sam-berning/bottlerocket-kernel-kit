@@ -75,6 +75,8 @@ Patch1008: 1008-Revert-selinux-fix-overlayfs-mmap-and-mprotect-acces.patch
 Patch1009: 1009-nitro_enclaves-fix-use-after-free-on-SLOT_ALLOC-fail.patch
 # Initialize modname and offset in ftrace print_rec() to avoid GP fault
 Patch1010: 1010-ftrace-initialize-modname-and-offset-in-print_rec.patch
+# Backport patch to disable LZ4 rolling decompression on EROFS
+Patch1011: 1011-erofs-disable-LZ4-rolling-decompression-for-now.patch
 
 BuildRequires: bc
 BuildRequires: elfutils-devel
