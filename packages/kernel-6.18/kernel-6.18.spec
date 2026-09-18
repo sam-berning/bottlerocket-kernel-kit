@@ -84,6 +84,10 @@ Patch1006: 1006-Revert-selinux-fix-overlayfs-mmap-and-mprotect-acces.patch
 Patch1007: 1007-nitro_enclaves-fix-use-after-free-on-SLOT_ALLOC-fail.patch
 # Initialize modname and offset in ftrace print_rec() to avoid GP fault
 Patch1008: 1008-ftrace-initialize-modname-and-offset-in-print_rec.patch
+# Validate IPv6 routing header segments_left in AH6 to avoid OOB access
+Patch1009: 1009-xfrm-ah6-validate-routing-header-segments_left.patch
+# Bound tun receive headroom to prevent skb overflow
+Patch1010: 1010-net-tun-bound-receive-headroom.patch
 
 BuildRequires: bc
 BuildRequires: elfutils-devel
